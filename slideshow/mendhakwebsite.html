@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+	<head>
+
+		<title>Mendhak / Photos</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		
+		<link rel="stylesheet" href="css/supersized.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="theme/supersized.shutter.css" type="text/css" media="screen" />
+		
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+		
+		<script type="text/javascript" src="js/supersized.3.2.7.min.js"></script>
+		<script type="text/javascript" src="theme/supersized.shutter.min.js"></script>
+		
+		<script type="text/javascript">
+			
+			var myslides = [];
+
+			jQuery(function($){
+
+
+
+				for (i = 1; i <= 100; i++)
+				{
+					myslides.push(
+						{image : 'http://flkr.me/searchimg/mendhakwebsite/' + i + '/b', 
+						title : '', 
+						thumb : 'http://flkr.me/searchimg/mendhakwebsite/' + i + '/q', 
+						url : 'http://flkr.me/searchurl/mendhakwebsite/' + i});
+				}
+
+
+				$.supersized({
+				
+					slide_interval:4000,// Length between transitions
+					transition:1, 
+				// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+					transition_speed:1000,// Speed of transition
+					slide_links:false,// Individual links for each slide (Options: false, 'number', 'name', 'blank')
+					slides:myslides,
+					random:0,
+					thumb_links:0, 
+					thumbnail_navigation:0
+				});	
+
+				setAllTitles();
+		    });
+
+
+		function setAllTitles()
+		{
+			for(i = 1; i<=100; i++)
+			{
+				api.options.slides[i].title = 'This is ' + i;
+			}
+		}
+
+		    
+		</script>
+		
+	</head>
+	
+
+<style type="text/css">
+
+#badges{ float:right; margin-top:1px; border-left:1px solid #333;  }
+
+</style>
+
+
+
+<body>
+
+
+	<!--Arrow Navigation-->
+	<a id="prevslide" class="load-item"></a>
+	<a id="nextslide" class="load-item"></a>
+	
+	<div id="thumb-tray" class="load-item">
+		<div id="thumb-back"></div>
+		<div id="thumb-forward"></div>
+	</div>
+	
+	<!--Time Bar-->
+	<div id="progress-back" class="load-item">
+		<div id="progress-bar"></div>
+	</div>
+	
+	<!--Control Bar-->
+	<div id="controls-wrapper" class="load-item">
+		<div id="controls">
+			
+			<a id="play-button"><img id="pauseplay" src="img/pause.png"/></a>
+		
+			<!--Slide counter-->
+			 <div id="slidecounter">
+				&nbsp;<!--<span class="slidenumber"></span> / <span class="totalslides"></span>-->
+			</div> 
+
+			<!--Slide captions displayed here-->
+			<div id="slidecaption"></div>
+			
+			<!--Thumb Tray button-->
+			<div id="badges">
+				<a href="http://gpslogger.mendhak.com/"><img src="img/gpslogger.png" alt="GPSLogger" /></a>
+				<a href="http://github.com/mendhak"><img src="img/github.png" alt="Github Projects" /></a>
+				<a href="http://flickr.com/photos/mendhak/"><img src="img/flickr.png" alt="Flickr photos" /></a>
+				<a href="http://www.goodreads.com/user/show/6836662-mendhak"><img src="img/goodreads.png" alt="Goodreads" /></a>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
